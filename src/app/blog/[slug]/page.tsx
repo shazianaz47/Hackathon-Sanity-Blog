@@ -7,12 +7,12 @@ import CommentsSection from '@/app/components/CommentsSection'
 interface Params {
     params:{
         slug:string
-    }
+    };
 }
 
-const BlogPost = async (params:Params) => {
+const BlogPost = async ({params}:Params) => {
    
-   const {slug} =params.params
+   const {slug} = await params;
     const data:Blog = await client.fetch (`*[_type == "blog" && slug.current == $slug]{ 
     heading,
     description,
@@ -31,7 +31,7 @@ const BlogPost = async (params:Params) => {
 
             <p className='text-lg '>
                 {data.description}
-            </p>
+            </p><br/>
             <CommentsSection/>
         </div>
     </main>
