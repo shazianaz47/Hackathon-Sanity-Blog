@@ -19,9 +19,7 @@ export default async function Home() {
    }`);
   return (
     <div>
-      {/* <div className="bg-blue-200"> <Header/></div> */}
-     
-      <div className="text-gray-500 text-bold text-5xl p-6 underline text-center">
+      <div className="text-white mx-20 bg-blue-600 text-bold text-5xl p-8 underline text-center">
         Blog Design-0-Pedia
       </div>
       <p className="mx-20 font-thin text-[20px] text-[#807575]">

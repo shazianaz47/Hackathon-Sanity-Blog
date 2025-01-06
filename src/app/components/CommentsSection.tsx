@@ -3,8 +3,8 @@
 import { useState } from "react";
 
 const CommentsSection = () => {
-  const [comments, setComments] = useState([]);
-  const [comment, setComment] = useState("");
+  const [comments, setComments] = useState<string[]>([]);
+  const [comment, setComment] = useState<string>("");
 
   const addComment = () => {
     if (comment.trim() === "") return;

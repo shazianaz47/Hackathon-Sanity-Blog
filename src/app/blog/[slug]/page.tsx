@@ -12,7 +12,7 @@ interface Params {
 
 const BlogPost = async ({params}:Params) => {
    
-   const {slug} = await params;
+   const {slug} =  params;
     const data:Blog = await client.fetch (`*[_type == "blog" && slug.current == $slug]{ 
     heading,
     description,
@@ -20,19 +20,24 @@ const BlogPost = async ({params}:Params) => {
     "imageUrl":image.asset-> url
    }[0]`, {slug})
   return (
-    <main className='max-w-5xl my-20 shadow-xl rounded-lg mx-auto p-4 flex-col items-center'>
-        <div>
-            <Image className="rounded-lg object-cover h-[20rem]" src={data.imageUrl} alt={data.heading} width={1024} height={600}/>
+    <main className='max-w-5xl my-10 shadow-xl rounded-lg mx-auto p-4 flex-col items-center'>
+       {/* Image Section */}
+        <div className='space-y-4'>
+            <Image className="rounded-lg object-cover h-[20rem]  "
+             src={data.imageUrl} alt={data.heading} width={1200} height={600}/>
         </div>
-        <div>
-            <h2 className='text-3xl font-bold my-10'>
+        {/* Text Section */}
+        <div className='mt-6'>
+            <h2 className='text-3xl font-bold mb-6'>
                 {data.heading}
             </h2>
 
             <p className='text-lg '>
                 {data.description}
             </p><br/>
+            
             <CommentsSection/>
+            
         </div>
     </main>
   )
